@@ -7,10 +7,10 @@ EXPOSE 3000
 # data to $HOME, but using root will break that possibility, so 
 # use /tmp instead
 ENV HOME /tmp
-WORKDIR /srv
+WORKDIR /project
 
 RUN set -ex;\
     npm install -g json-server;\
-    mkdir /srv;
+    mkdir /project;
 
 CMD ["json-server"]

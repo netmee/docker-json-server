@@ -6,14 +6,14 @@ Docker-json-server helps to launch this service without the need of installing n
 
 # Usage
 
-Default working directory is "`/srv`", exposed port is "3000".
+Default working directory is "`/project`", exposed port is "3000".
 
 
 To serve "db.json" file, do:
 
 ```bash
 docker run --rm    \
-    -v $(pwd):/srv \
+    -v $(pwd):/project \
     -p 3000:3000   \
     metal3d/json-server --watch db.json
 ```
@@ -24,7 +24,7 @@ You may change uid:gid to use yours and be able to read/write file:
 
 ```
 docker run --rm    \
-    -v $(pwd):/srv \
+    -v $(pwd):/project \
     -p 3000:3000   \
     --user="$(id -u):$(id -g)" \
     metal3d/json-server --watch db.json
