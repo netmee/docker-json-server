@@ -10,7 +10,6 @@ ENV HOME /tmp
 WORKDIR /project
 
 RUN set -ex;\
-    npm install -g json-server;\
-    mkdir /project;
+    npm install -g json-server;
 
 CMD ["json-server"]
