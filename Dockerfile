@@ -9,7 +9,10 @@ EXPOSE 3000
 ENV HOME /project
 WORKDIR /project
 
+ADD entrypoint.sh /entrypoint.sh
+
 RUN set -ex;\
+    chmod +x /entrypoint.sh; \
     npm install -g json-server;
 
-CMD ["json-server"]
+ENTRYPOINT /entrypoint.sh
