@@ -15,4 +15,4 @@ RUN set -ex;\
     chmod +x /entrypoint.sh; \
     npm install -g json-server;
 
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
