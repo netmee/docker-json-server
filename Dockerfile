@@ -13,6 +13,7 @@ ADD entrypoint.sh /entrypoint.sh
 
 RUN set -ex;\
     chmod +x /entrypoint.sh; \
+    chmod a+w /project; \
     npm install -g json-server;
 
 ENTRYPOINT ["/entrypoint.sh"]
