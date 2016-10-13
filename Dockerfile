@@ -11,9 +11,15 @@ WORKDIR /project
 
 ADD entrypoint.sh /entrypoint.sh
 
-RUN set -ex;\
-    chmod +x /entrypoint.sh; \
-    chmod a+w /project; \
+RUN set -ex;                                \
+    chmod +x /entrypoint.sh;                \
+    chmod a+w /project;                     \
     npm install -g json-server;
+RUN set -xe;                                \
+    groupadd -g 1001 jsonserver;            \
+    useradd -u 1001 -g 1001 -m jsonserver;  \
+    chown -R jsonserver:jsonserver /project
+
+USER 1001
 
 ENTRYPOINT ["/entrypoint.sh"]
