@@ -9,5 +9,3 @@ case $1 in
         exec json-server $@
         ;;
 esac
-
-
