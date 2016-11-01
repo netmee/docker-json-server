@@ -9,11 +9,11 @@ EXPOSE 3000
 ENV HOME /project
 WORKDIR /project
 
-ADD entrypoint.sh /entrypoint.sh
+ADD run.sh /run.sh
 
 RUN set -ex;                                \
-    chmod +x /entrypoint.sh;                \
-    chmod a+w /project;                     \
+    chmod +x /run.sh;                       \
+    chmod a+w /project;                     \   
     npm install -g json-server;
 RUN set -xe;                                \
     groupadd -g 1001 jsonserver;            \
@@ -22,4 +22,4 @@ RUN set -xe;                                \
 
 USER 1001
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/run.sh"]
